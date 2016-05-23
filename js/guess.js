@@ -13,6 +13,9 @@ var vm = new Vue({
     isHidden: true,
     options: [],
     ansText: '',
+    correct: 0,
+    previousClick: -1,
+    errorTimes: 0
   },
   ready: function() {
     var self = this;
@@ -54,11 +57,17 @@ var vm = new Vue({
       if(this.options[index].ans == "1") {
         this.notifyStyle.color = 'blue';
         this.notifyText = '正確答案';
+        this.errorTimes = 0;
+        if(index != this.previousClick) {
+          this.correct++;
+          this.previousClick = index;
+        }
         ansOk[index] = 1;
       }
       else {
         this.notifyStyle.color = 'red';
-        this.notifyText = '答錯了';
+        this.errorTimes++;
+        this.notifyText = '第'+this.errorTimes+'次答錯';
       }
     },
     showAnswer: function() {
