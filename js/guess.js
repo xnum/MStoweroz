@@ -1,4 +1,6 @@
 
+var ansOk = {};
+
 var vm = new Vue({
   el: '#app',
   data: {
@@ -10,7 +12,7 @@ var vm = new Vue({
     },
     isHidden: true,
     options: [],
-    ansText: ''
+    ansText: '',
   },
   ready: function() {
     var self = this;
@@ -27,7 +29,17 @@ var vm = new Vue({
   },
   methods: {
     createProblem: function() {
-      var index = Math.floor((Math.random() * this.options.length));
+      var arr = [];
+      if(Object.keys(ansOk).length == this.options.length) {
+        ansOk = {};
+      }
+      for(i = 0; i < this.options.length; ++i) {
+        if(ansOk[i] != 1)
+          arr.push(i);
+      }
+
+      var index = Math.floor((Math.random() * arr.length));
+      index = arr[index];
       for(i = 0; i < this.options.length; ++i) {
         this.options.ans = 0;
       }
@@ -42,6 +54,7 @@ var vm = new Vue({
       if(this.options[index].ans == "1") {
         this.notifyStyle.color = 'blue';
         this.notifyText = '正確答案';
+        ansOk[index] = 1;
       }
       else {
         this.notifyStyle.color = 'red';
