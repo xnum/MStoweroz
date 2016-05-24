@@ -43,7 +43,7 @@
           <p>選項：</p>
           <div class="row">
             <div v-for="option in options">
-              <div class="col s3">
+              <div class="col s6 m3">
                 <button class="btn" data-url="{{ option.url }}" v-on:click="selectProblem($index)">
                   {{ option.name }}
                 </button>

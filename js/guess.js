@@ -44,7 +44,7 @@ var vm = new Vue({
       var index = Math.floor((Math.random() * arr.length));
       index = arr[index];
       for(i = 0; i < this.options.length; ++i) {
-        this.options.ans = 0;
+        this.options[i].ans = 0;
       }
 
       this.options[index].ans = 1;
