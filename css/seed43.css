@@ -1,0 +1,54 @@
+		html, body, p, h1, div, label{
+			margin:0; padding:0; border:0;
+		}
+		body{
+			font-family: NanumGothic, 'Malgun Gothic', Gulim;
+			font-size:10pt;
+			background:#EEE;
+		}
+		#wrap{
+			padding:5px;
+			margin:0 auto;
+			max-width:320px;
+			background:white;
+			border:1px solid gray;
+		}
+		#wrap > form > div{
+			margin-bottom:24px;
+		}
+		h1{
+			margin-bottom:8px;
+			font-size:15pt;
+		}
+		#wrap > form > div > p{
+			padding:6px 3px;
+			clear:both;
+		}
+		#wrap > form > div > p > label{
+			display:block;
+		}
+		#wrap > form > div > p > label > input[type="number"]{
+			float:right;
+		}
+		input[type="number"].increasing{
+			width:32px;
+			text-align:center;
+		}
+		.empty{
+			background:#FEE;
+		}
+		#q_39_1{
+			margin: 0; padding: 0;
+		}
+		#q_39_1 li{
+			margin: 0; padding: 10px 0; list-style: none;
+		}
+		#q_39_1 li .q{
+			font-weight: bold;
+		}
+		#q_39_1 li .highlight{
+			background: lime;
+		}
+		#q_39_1 li .rightanswer{
+			color: blue;
+		}

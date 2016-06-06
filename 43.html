@@ -1,0 +1,435 @@
+
+<!doctype html><html><head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<title>seed43F記錄表</title>
+	<link rel="stylesheet" href="css/seed43.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/seed43.js"></script>
+	
+</head><body>
+	<div id="wrap">
+		<form onsubmit="return false">
+			<div id="floor0">
+				<h1>0. 大廳</h1>
+				<p><label for="q_0_0">進塔前的種子點數 <input type="number" id="q_0_0" /></label></p>
+			</div>
+			<div id="floor1">
+				<h1>1. 消滅古代綠水靈</h1>
+				<p><label for="q_1_0">古代綠水靈的數量 <input type="number" id="q_1_0" /></label></p>
+				<p><label for="q_1_1">傷害 <input type="number" id="q_1_1" /></label></p>
+			</div>
+			<div id="floor2">
+				<h1>2. 收集卡片</h1>
+				<script type="text/html" id="card_form">
+					<li>
+						<button onclick="$(this).parent().remove();return false;">X</button>
+						<button onclick="return toggleText($(this));" value="0">[未使用]</button>
+						###1
+					</li>
+				</script>
+				<div>
+					<div><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 1);">1</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 2);">2</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 3);">3</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 4);">4</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 5);">5</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 6);">6</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '紅色', 7);">7</button></div><div><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 1);">1</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 2);">2</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 3);">3</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 4);">4</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 5);">5</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 6);">6</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '藍色', 7);">7</button></div><div><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 1);">1</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 2);">2</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 3);">3</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 4);">4</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 5);">5</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 6);">6</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '綠色', 7);">7</button></div><div><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 1);">1</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 2);">2</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 3);">3</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 4);">4</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 5);">5</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 6);">6</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '黃色', 7);">7</button></div>					<div>
+						<button style="width: 224px; height: 32px; background: #b8d" onclick="return addCard(this.style.backgroundColor, '紫羅蘭','');">紫羅蘭</button>
+					</div>
+				</div>
+				<ol id="floor2_cards">
+				</ol>
+			</div>
+			<div id="floor3">
+				<h1>3. 撿烏龜蛋</h1>
+				<p><label for="q_3_0">信任的次數 <input type="number" id="q_3_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor4">
+				<h1>4. 維持平衡</h1>
+				<p><label for="q_4_0">傾斜打錯的次數 <input type="number" id="q_4_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor6">
+				<h1>6. 消滅綠水靈</h1>
+				<p><label for="q_6_0">消滅超級綠水靈的數量 <input type="number" id="q_6_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor8">
+				<h1>8. 消滅火山蟲</h1>
+				<p><label for="q_8_0">總共打了多少怪物 <input type="number" id="q_8_0" /></label></p>
+			</div>
+			<div id="floor9">
+				<h1>9. 忍耐</h1>
+				<p><label for="q_9_0">總共錯誤次數? <input type="number" id="q_9_0" class="increasing" /></label></p>
+				<p>
+											<div><span>01</span><input type="radio" id="q_9_1_1_1" name="q_9_1_1" /><input type="radio" id="q_9_1_1_2" name="q_9_1_1" /><input type="radio" id="q_9_1_1_3" name="q_9_1_1" /><input type="radio" id="q_9_1_1_4" name="q_9_1_1" /></div>
+											<div><span>02</span><input type="radio" id="q_9_1_2_1" name="q_9_1_2" /><input type="radio" id="q_9_1_1_2" name="q_9_1_2" /><input type="radio" id="q_9_1_1_3" name="q_9_1_2" /><input type="radio" id="q_9_1_1_4" name="q_9_1_2" /></div>
+											<div><span>03</span><input type="radio" id="q_9_1_3_1" name="q_9_1_3" /><input type="radio" id="q_9_1_1_2" name="q_9_1_3" /><input type="radio" id="q_9_1_1_3" name="q_9_1_3" /><input type="radio" id="q_9_1_1_4" name="q_9_1_3" /></div>
+											<div><span>04</span><input type="radio" id="q_9_1_4_1" name="q_9_1_4" /><input type="radio" id="q_9_1_1_2" name="q_9_1_4" /><input type="radio" id="q_9_1_1_3" name="q_9_1_4" /><input type="radio" id="q_9_1_1_4" name="q_9_1_4" /></div>
+											<div><span>05</span><input type="radio" id="q_9_1_5_1" name="q_9_1_5" /><input type="radio" id="q_9_1_1_2" name="q_9_1_5" /><input type="radio" id="q_9_1_1_3" name="q_9_1_5" /><input type="radio" id="q_9_1_1_4" name="q_9_1_5" /></div>
+											<div><span>06</span><input type="radio" id="q_9_1_6_1" name="q_9_1_6" /><input type="radio" id="q_9_1_1_2" name="q_9_1_6" /><input type="radio" id="q_9_1_1_3" name="q_9_1_6" /><input type="radio" id="q_9_1_1_4" name="q_9_1_6" /></div>
+											<div><span>07</span><input type="radio" id="q_9_1_7_1" name="q_9_1_7" /><input type="radio" id="q_9_1_1_2" name="q_9_1_7" /><input type="radio" id="q_9_1_1_3" name="q_9_1_7" /><input type="radio" id="q_9_1_1_4" name="q_9_1_7" /></div>
+											<div><span>08</span><input type="radio" id="q_9_1_8_1" name="q_9_1_8" /><input type="radio" id="q_9_1_1_2" name="q_9_1_8" /><input type="radio" id="q_9_1_1_3" name="q_9_1_8" /><input type="radio" id="q_9_1_1_4" name="q_9_1_8" /></div>
+									</p>
+			</div>
+			<div id="floor11">
+				<h1>11. 消滅石巨人</h1>
+				<p><label for="q_11_0">打死黑巨人的數量 <input type="number" id="q_11_0" /></label></p>
+			</div>
+			<div id="floor13">
+				<h1>13. 保護魔力石</h1>
+				(總共 15+15+15+15+25)
+				<p><label for="q_13_0">綠色怪物的數量 <input type="number" id="q_11_0" /></label></p>
+				<p><label for="q_13_1">白色怪物的數量 <input type="number" id="q_11_1" /></label></p>
+			</div>
+			<div id="floor21">
+				<h1>21. 消滅艾莉傑</h1>
+				<p><label for="q_21_0">獨角獸的數量 <input type="number" id="q_21_0" /></label></p>
+			</div>
+			<div id="floor22">
+				<h1>22. 雲朵忍耐</h1>
+				<p><label for="q_22_0">掉落次數 <input type="number" id="q_22_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor23">
+				<h1>23.透明忍耐</h1>
+				<p><label for="q_23_0">摔下去的次數 <input type="number" id="q_23_0" class="increasing" /></label></p>
+				<p>是否聽到聲音 <span style="float:right"><label for="q_23_1_f"><input type="radio" id="q_23_1_f" name="q_23_1" value="0" /> 否</label> <label for="q_23_1_t"><input type="radio" id="q_23_1_t" name="q_23_1" value="1" /> 是</label></span></p>
+			</div>
+			<div id="floor24">
+				<h1>24. 村莊的背景音樂</h1>
+				<div>
+						第4層: 
+						<select id="q24_4">
+						<label for="q_24_4a">
+							<optgroup>
+                <option value="" style="background:#FEE">選擇</option>
+							</optgroup>
+							<optgroup label="維多利亞島">										
+								<option value="1">維多利亞港</option>										
+								<option value="2">墮落城市</option>										
+								<option value="3">勇士之村</option>										
+								<option value="4">魔法森林</option>										
+								<option value="5">弓箭手村</option>										
+								<option value="6">櫻花處</option>										
+								<option value="8">奇幻村</option>
+							</optgroup>
+							<optgroup label="格蘭帝斯">										
+								<option value="9">萬神殿</option>										
+								<option value="10">赫力席母奪回本部</option>										
+								<option value="11">尖耳狐狸村</option>
+							</optgroup
+							><optgroup label="路德斯湖">										
+								<option value="12">玩具城</option>										
+								<option value="13">童話村</option>										
+								<option value="14">地球防衛本部</option>
+							</optgroup>
+							<optgroup label="冰原雪域山脈">										
+								<option value="15">天空之城</option>										
+								<option value="16">冰原雪域</option>
+							</optgroup>
+							<optgroup label="水世界">										
+								<option value="17">水之都</option
+							></optgroup>
+							<optgroup label="米納爾森林">										
+								<option value="18">神木村</option>
+							</optgroup>
+							<optgroup label="納希沙漠">										
+								<option value="19">納希</option>										
+								<option value="20">瑪迦提亞城</option>
+							</optgroup>
+							<optgroup label="武陵桃園">										
+							    <option value="21">武陵</option>										
+							    <option value="22">靈藥幻境</option>
+							</optgroup>
+							<optgroup label="其他">										
+							    <option value="23">瑞恩</option>										
+							    <option value="24">耶雷弗</option>										
+							    <option value="25">埃德爾斯坦</option>										
+							    <option value="26">水晶花園</option>
+							</optgroup>
+							</select>
+						<button onclick="return go($('#q24_4').val())">播放</button>
+						<button onclick="return stopgo($('#q24_4').val());">停止</button>
+						</div>
+				<div>
+						第3層: 
+						<select id="q24_3">
+						<label for="q_24_3a">
+							<optgroup>
+								<option value="" style="background:#FEE">選擇</option>
+							</optgroup>
+							<optgroup label="維多利亞島">										
+								<option value="1">維多利亞港</option>										
+								<option value="2">墮落城市</option>										
+								<option value="3">勇士之村</option>										
+								<option value="4">魔法森林</option>										
+								<option value="5">弓箭手村</option>										
+								<option value="6">櫻花處</option>										
+								<option value="8">奇幻村</option>
+							</optgroup>
+							<optgroup label="格蘭帝斯">										
+								<option value="9">萬神殿</option>										
+								<option value="10">赫力席母奪回本部</option>										
+								<option value="11">尖耳狐狸村</option>
+							</optgroup
+							><optgroup label="路德斯湖">										
+								<option value="12">玩具城</option>										
+								<option value="13">童話村</option>										
+								<option value="14">地球防衛本部</option>
+							</optgroup>
+							<optgroup label="冰原雪域山脈">										
+								<option value="15">天空之城</option>										
+								<option value="16">冰原雪域</option>
+							</optgroup>
+							<optgroup label="水世界">										
+								<option value="17">水之都</option
+							></optgroup>
+							<optgroup label="米納爾森林">										
+								<option value="18">神木村</option>
+							</optgroup>
+							<optgroup label="納希沙漠">										
+								<option value="19">納希</option>										
+								<option value="20">瑪迦提亞城</option>
+							</optgroup>
+							<optgroup label="武陵桃園">										
+							    <option value="21">武陵</option>										
+							    <option value="22">靈藥幻境</option>
+							</optgroup>
+							<optgroup label="其他">										
+							    <option value="23">瑞恩</option>										
+							    <option value="24">耶雷弗</option>										
+							    <option value="25">埃德爾斯坦</option>										
+							    <option value="26">水晶花園</option>
+							</optgroup>
+						</select>
+						<button onclick="return go($('#q24_3').val())">播放</button>
+						<button onclick="return stopgo($('#q24_3').val());">停止</button>
+					</div>
+				<div>
+						第2層: 
+						<select id="q24_2">
+						<label for="q_24_2a">
+							<optgroup>
+								<option value="" style="background:#FEE">選擇</option>
+							</optgroup>
+							<optgroup label="維多利亞島">										
+								<option value="1">維多利亞港</option>										
+								<option value="2">墮落城市</option>										
+								<option value="3">勇士之村</option>										
+								<option value="4">魔法森林</option>										
+								<option value="5">弓箭手村</option>										
+								<option value="6">櫻花處</option>										
+								<option value="8">奇幻村</option>
+							</optgroup>
+							<optgroup label="格蘭帝斯">										
+								<option value="9">萬神殿</option>										
+								<option value="10">赫力席母奪回本部</option>										
+								<option value="11">尖耳狐狸村</option>
+							</optgroup
+							><optgroup label="路德斯湖">										
+								<option value="12">玩具城</option>										
+								<option value="13">童話村</option>										
+								<option value="14">地球防衛本部</option>
+							</optgroup>
+							<optgroup label="冰原雪域山脈">										
+								<option value="15">天空之城</option>										
+								<option value="16">冰原雪域</option>
+							</optgroup>
+							<optgroup label="水世界">										
+								<option value="17">水之都</option
+							></optgroup>
+							<optgroup label="米納爾森林">										
+								<option value="18">神木村</option>
+							</optgroup>
+							<optgroup label="納希沙漠">										
+								<option value="19">納希</option>										
+								<option value="20">瑪迦提亞城</option>
+							</optgroup>
+							<optgroup label="武陵桃園">										
+							    <option value="21">武陵</option>										
+							    <option value="22">靈藥幻境</option>
+							</optgroup>
+							<optgroup label="其他">										
+							    <option value="23">瑞恩</option>										
+							    <option value="24">耶雷弗</option>										
+							    <option value="25">埃德爾斯坦</option>										
+							    <option value="26">水晶花園</option>
+							</optgroup>						
+					    </select>
+						
+						<button onclick="return go($('#q24_2').val())">播放</button>
+						<button onclick="return stopgo($('#q24_2').val());">停止</button>
+					</div>
+				<div>
+						第1層: 
+						<select id="q24_1">
+						<label for="q_24_1a">
+							<optgroup>
+								<option value="" style="background:#FEE">選擇</option>
+							</optgroup>
+							<optgroup label="維多利亞島">										
+								<option value="1">維多利亞港</option>										
+								<option value="2">墮落城市</option>										
+								<option value="3">勇士之村</option>										
+								<option value="4">魔法森林</option>										
+								<option value="5">弓箭手村</option>										
+								<option value="6">櫻花處</option>										
+								<option value="8">奇幻村</option>
+							</optgroup>
+							<optgroup label="格蘭帝斯">										
+								<option value="9">萬神殿</option>										
+								<option value="10">赫力席母奪回本部</option>										
+								<option value="11">尖耳狐狸村</option>
+							</optgroup
+							><optgroup label="路德斯湖">										
+								<option value="12">玩具城</option>										
+								<option value="13">童話村</option>										
+								<option value="14">地球防衛本部</option>
+							</optgroup>
+							<optgroup label="冰原雪域山脈">										
+								<option value="15">天空之城</option>										
+								<option value="16">冰原雪域</option>
+							</optgroup>
+							<optgroup label="水世界">										
+								<option value="17">水之都</option
+							></optgroup>
+							<optgroup label="米納爾森林">										
+								<option value="18">神木村</option>
+							</optgroup>
+							<optgroup label="納希沙漠">										
+								<option value="19">納希</option>										
+								<option value="20">瑪迦提亞城</option>
+							</optgroup>
+							<optgroup label="武陵桃園">										
+							    <option value="21">武陵</option>										
+							    <option value="22">靈藥幻境</option>
+							</optgroup>
+							<optgroup label="其他">										
+							    <option value="23">瑞恩</option>										
+							    <option value="24">耶雷弗</option>										
+							    <option value="25">埃德爾斯坦</option>										
+							    <option value="26">水晶花園</option>
+							</optgroup>	
+								
+													
+						</select>
+						<button onclick="return go($('#q24_1').val())">播放</button>
+						<button onclick="return stopgo($('#q24_1').val());">停止</button>
+					</div>
+								<object id="playerswf" type="application/x-shockwave-flash" data="maplebgm/player.swf" width="1" height="1">
+					<param name="movie" value="player_mp3_js.swf" />
+					<param name="AllowScriptAccess" value="always" />
+					<param name="FlashVars" value="listener=myListener&amp;interval=0" />
+				</object>
+                
+				
+
+			<p>					
+				<audio id="player1" src="bgm/20.mp3" ended ></audio>
+				<audio id="player2" src="bgm/22.mp3"></audio>
+				<audio id="player3" src="bgm/10.mp3"></audio>
+				<audio id="player4" src="bgm/23.mp3"></audio>
+				<audio id="player5" src="bgm/1.mp3"></audio>
+				<audio id="player6" src="bgm/25.mp3"></audio>
+				<audio id="player8" src="bgm/8.mp3"></audio>
+				<audio id="player9" src="bgm/18.mp3"></audio>
+				<audio id="player10" src="bgm/21.mp3"></audio>
+				<audio id="player11" src="bgm/7.mp3"></audio>
+				<audio id="player12" src="bgm/9.mp3"></audio>
+				<audio id="player13" src="bgm/16.mp3"></audio>
+				<audio id="player14" src="bgm/6.mp3"></audio>
+				<audio id="player15" src="bgm/2.mp3"></audio>
+				<audio id="player16" src="bgm/5.mp3"></audio>
+				<audio id="player17" src="bgm/3.mp3"></audio>
+				<audio id="player18" src="bgm/14.mp3"></audio>
+				<audio id="player19" src="bgm/15.mp3"></audio>
+				<audio id="player20" src="bgm/19.mp3"></audio>
+				<audio id="player21" src="bgm/13.mp3"></audio>
+				<audio id="player22" src="bgm/24.mp3"></audio>
+				<audio id="player23" src="bgm/17.mp3"></audio>
+				<audio id="player24" src="bgm/11.mp3"></audio>
+				<audio id="player25" src="bgm/12.mp3"></audio>
+				<audio id="player26" src="bgm/4.mp3"></audio>
+			</p> 			
+			
+			</div>
+			<div id="floor26">
+				<h1>26. 消滅橘色綠水靈</h1>
+				<p><label for="q_26_0_0">開始前的液體數量 <input type="number" id="q_26_0_0" /></label></p>
+				<p><label for="q_26_0_1">召喚次數 <input type="number" id="q_26_0_1" class="increasing" /></label></p>
+				<p><label for="q_26_0_2">剩餘的液體數量 <input type="number" id="q_26_0_2" /></label></p>
+				<p><label for="q_26_0">撿取液體的次數 <input type="number" id="q_26_0" readonly /></label></p>
+			</div>
+			<div id="floor28">
+				<h1>28. 消滅沙漠蛇和耳罩蜥蜴</h1>
+				<table>
+					<tr><th></th><th>左</th><th>右</th></tr>
+					<tr><th>上</th><td><input type="number" id="q_28_0_0" class="increasing" /></td><td><input type="number" id="q_28_0_1" class="increasing" /></td></tr>
+					<tr><th>中</th><td><input type="number" id="q_28_1_0" class="increasing" /></td><td><input type="number" id="q_28_1_1" class="increasing" /></td></tr>
+					<tr><th>下</th><td><input type="number" id="q_28_2_0" class="increasing" /></td><td><input type="number" id="q_28_2_1" class="increasing" /></td></tr>
+				</table>
+			</div>
+			<div id="floor29">
+				<h1>29. 蒐集沙結晶</h1>
+				<p>通關所使用的結晶數量</p>
+				<p><div style="text-align:right">
+					<label for="q_29_1"><input type="radio" id="q_23_1" name="q_29_0" />1</label>
+					<label for="q_29_2"><input type="radio" id="q_23_2" name="q_29_0" />2</label>
+					<label for="q_29_3"><input type="radio" id="q_23_3" name="q_29_0" />3</label>
+					<label for="q_29_4"><input type="radio" id="q_23_4" name="q_29_0" />4</label>
+					<label for="q_29_5"><input type="radio" id="q_23_5" name="q_29_0" />5</label>
+					<label for="q_29_6"><input type="radio" id="q_23_6" name="q_29_0" />6</label>
+					<label for="q_29_7"><input type="radio" id="q_23_7" name="q_29_0" />7</label>
+				</div></p>
+			</div>
+			<div id="floor31">
+				<h1>31. 消滅食蟲綠水靈</h1>
+				<p><label for="q_31_0">妖精招喚同伴的次數 <input type="number" id="q_31_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor33">
+				<h1>33. 鑰匙迷宮</h1>
+				<p><label for="q_33_0">剩餘 <b>逆時針</b> 鑰匙數量 <input type="number" id="q_33_0" class="increasing" /></label></p>
+				<p><label for="q_33_1">剩餘 <b>順時針</b> 鑰匙數量 <input type="number" id="q_33_1" class="increasing" /></label></p>
+				<p><label for="q_33_2"><b>購買</b> 鑰匙數量 <input type="number" id="q_33_2" class="increasing" /></label></p>
+			</div>
+			<div id="floor33">
+				<h1>34. 蒐集紫色皮革</h1>
+				<p><label for="q_34_0">使用皮革傳上去的次數 <input type="number" id="q_34_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor35">
+				<h1>35. 休息層</h1>
+				<p>剩餘時間 <input type="number" id="q_35_h" style="width:48px;" /> : <input type="number" id="q_35_m" style="width:48px;" /> : <input type="number" id="q_35_s" style="width:48px;" /></p>
+				<p><input type="number" id="q_35_0" style="width:64px;text-align:right" readonly />秒</p>
+			</div>
+			<div id="floor36">
+				<h1>36. 8個暗號</h1>
+				<p>數字對照 (菇菇寶貝 1, 藍寶 2, 緞帶肥肥 3, 綠水靈 4)</p>
+				<p>
+											<div><span>01</span><input type="radio" id="q_36_1_1_1" name="q_36_1_1" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_1" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_1" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_1" value="4" /> <span id="q_36_disp_1"></span></div>
+											<div><span>02</span><input type="radio" id="q_36_1_2_1" name="q_36_1_2" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_2" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_2" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_2" value="4" /> <span id="q_36_disp_2"></span></div>
+											<div><span>03</span><input type="radio" id="q_36_1_3_1" name="q_36_1_3" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_3" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_3" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_3" value="4" /> <span id="q_36_disp_3"></span></div>
+											<div><span>04</span><input type="radio" id="q_36_1_4_1" name="q_36_1_4" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_4" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_4" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_4" value="4" /> <span id="q_36_disp_4"></span></div>
+											<div><span>05</span><input type="radio" id="q_36_1_5_1" name="q_36_1_5" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_5" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_5" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_5" value="4" /> <span id="q_36_disp_5"></span></div>
+											<div><span>06</span><input type="radio" id="q_36_1_6_1" name="q_36_1_6" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_6" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_6" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_6" value="4" /> <span id="q_36_disp_6"></span></div>
+											<div><span>07</span><input type="radio" id="q_36_1_7_1" name="q_36_1_7" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_7" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_7" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_7" value="4" /> <span id="q_36_disp_7"></span></div>
+											<div><span>08</span><input type="radio" id="q_36_1_8_1" name="q_36_1_8" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_8" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_8" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_8" value="4" /> <span id="q_36_disp_8"></span></div>
+										<button onclick="return clear36();" style="float:right">清除</button>
+				</p>
+				<p>答案: <input type="text" id="q_36_1" readonly /></p>
+			</div>
+			<div id="floor38">
+				<h1>38. 清除黑暗氣息</h1>
+				<label for="q_38_0">切換次數 <input type="number" id="q_38_0" class="increasing" /></label>
+			</div>
+			<div id="floor39">
+				<h1>39. 回答問題</h1>
+				<label for="q_39_0">輸入關鍵詞 <input type="text" id="q_39_0" class="find_39" /></label>
+				<ul id="q_39_1">
+					<li class="template" style="display:none">
+						<span class="q"></span><br />
+						<span class="al1">1. <span class="a1"></span></span><br />
+						<span class="al2">2. <span class="a2"></span></span><br />
+						<span class="al3">3. <span class="a3"></span></span><br />
+						<span class="al4">4. <span class="a4"></span></span>
+					</li>
+				</ul>
+			</div>
+			<div style="height:480px;"></div>
+		</form>
+    <a href="http://forum.gamer.com.tw/C.php?bsn=07650&snA=918822&tnum=7">原出處</a>修改自紅蓮提供的原始檔案，並修復已損毀的音樂檔連結
+	</div>
+</body></html>
